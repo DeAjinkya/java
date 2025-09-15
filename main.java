@@ -1,54 +1,33 @@
-package exception;
+package filehandling;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		BufferedReader br = null;
 		try {
-			
-			int n1 = Integer.parseInt(args[0]);
-			int n2 = Integer.parseInt(args[1]);
-			int choice = Integer.parseInt(args[2]);
-//			Scanner sc = new Scanner(System.in);
-//			System.out.println("enter n1: ");
-//			int n1 = sc.nextInt();
-//			System.out.println("enter n2: ");
-//			int n2 = sc.nextInt(); 
-//			
-//			System.out.println("enter the choice 1.+ \n2.- \n3.* \n4./ :");
-//			int choice = sc.nextInt();
-			
-			if(choice == 1) {
-				System.out.println("add = "+n1+n2);
-			} else if (choice == 2) {
-				System.out.println("subtract = "+(n1-n2));
-			}else if (choice == 3) {
-				System.out.println("subtract = "+(n1*n2));
-			}else if (choice == 4) {
-				System.out.println("subtract = "+(n1/n2));
-			}else {
-				System.out.println("enter a vaild input");
+			br = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("enter q to quit");
+			int i;
+			int cnt = 0;
+			while((i = br.read())!= 'q')
+				if(Character.isAlphabetic(i))
+					cnt++;
+			System.out.println("count = "+cnt);
+		}catch(IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				br.close();
+			}catch(IOException e){
+				e.printStackTrace();
 			}
-			
-		} catch(ArithmeticException e) {
-			System.out.println(e);
 		}
-		
-		catch(NumberFormatException e) {
-			System.out.println(e);
-		}
-		
-		catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println(e);
-		}catch(InputMismatchException e) {
-			System.out.println(e);
-		}
-		
 
 	}
+
 }
-
-
