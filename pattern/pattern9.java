@@ -16,10 +16,11 @@ public class pattern9{
     }
 }
 
-/** floyd's triangle
+/** 0-1 triangle
  *  1 
     0 1 
     1 0 1 
     0 1 0 1 
     1 0 1 0 1
+
  */
